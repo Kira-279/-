@@ -1,50 +1,43 @@
-# from django.shortcuts import render 
-# from django.http import HttpResponse
-
-# Create your views here. 
+from django.shortcuts import render 
+from django.http import *
+from django.template.response import TemplateResponse 
 
 # def index(request): 
-#     return HttpResponse("<h2>Глaвнaя</h2>") 
+#    return TemplateResponse(request, "firstapp/home.html")
 
-# def about(request): 
-#     return HttpResponse("<h2>0 сайте</h2>") 
+# def index(request): 
+#     return render(request, "index.html") 
 
-# def contact(request): 
-#     return HttpResponse("<h2>Koнтaкты</h2>") 
+# def index(request): 
+#    return render(request, "firstapp/home.html") 
 
-# def products(request, productid): 
-#     category = request.GET.get("cat", "11") 
-#     output = "<h2>Продукт № {0}  Категория: {1}</h2>" .format(productid, category) 
-#     return HttpResponse(output) 
+# def index(request):  
+#     data = {"header": "Передача параметров в шаблон Django", 
+#             "message": "Загружен шаблон templates/firstapp/index_app1.html"} 
+#   return render(request, "firstapp/index_app1.html", context=data) 
 
-# def users(request): 
-#     id = request.GET.get("id", 1) 
-#     name = request.GET.get("name", "Максим") 
-#     output = "<h2>Пользователь</h2><h3>id: {0}  Имя: {1}</h3 >" .format(id, name) 
-#     return HttpResponse(output) 
+# def index(request): 
+# header = "Персональные данные"  # обычная переменная 
+# langs = ["Английский", "Немецкий", "Испанский"]  # массив 
+# user = {"name": "Максим,", "age": 30}  # словарь 
+# addr = ("Виноградная", 23, 45)  # кортеж 
+# data = {"header": header, "langs": langs, "user": user, "address": addr} 
+# return TemplateResponse(request, "index.html", data) 
 
-from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect 
 
 def index(request): 
-    return HttpResponse("Index") 
+    header = "Персональные данные"  # обычная переменная 
+    langs = ["Английский", "Немецкий", "Испанский"]  # массив 
+    user = {"name": "Максим,", "age": 30}  # словарь 
+    addr = ("Виноградная", 23, 45)  # кортеж 
+    data = {"header": header, "langs": langs, "user": user, "address": addr} 
+    return render(request, "firstapp/index_app1.html", context=data)
+
 def about(request): 
-    return HttpResponse("About") 
+    return HttpResponse("about") 
+
 def contact(request): 
-    return HttpResponseRedirect("/about") 
+    return HttpResponse("contact") 
+
 def details(request): 
-    return HttpResponsePermanentRedirect("/") 
-
-#from django.http import * 
-
-# def m304(request): 
-#   return HttpResponseNotModified() 
-# def m400(request): 
-#   return HttpResponseBadRequest("<h2>Bad Request</h2>") 
-# def m403(request): 
-#   return HttpResponseForЬidden ( "<h2>ForЬidden</h2>") 
-# def m404(request): 
-#   return HttpResponseNotFound("<h2>Not Found</h2>") 
-# def m405(request): 
-#   return HttpResponseNotAllowed("<h2>Method is not allowed</h2>") 
-# def m410(request): 
-#   return HttpResponseGone("<h2>Content is no longer here</h2>") 
+    return HttpResponse("details") 

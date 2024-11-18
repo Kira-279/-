@@ -27,9 +27,9 @@ from firstapp import views
 #    path('users/', views.users), 
 #] 
 
-urlpatterns = [ 
-path('', views.index), 
-path('about/', views.about), 
-path('contact/', views.contact), 
-path('details/', views.details), 
+urlpatterns = [  
+    path('', views.index), 
+    path('about/', views.about), 
+    path('contact/', views.contact), 
+    path('details/', views.details), 
 ]
