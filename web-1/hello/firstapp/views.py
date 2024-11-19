@@ -1,6 +1,7 @@
 from django.shortcuts import render 
 from django.http import *
 from django.template.response import TemplateResponse 
+from .forms import UserForm
 
 # def index(request): 
 #    return TemplateResponse(request, "firstapp/home.html")
@@ -25,7 +26,7 @@ from django.template.response import TemplateResponse
 # return TemplateResponse(request, "index.html", data) 
 
 
-def index(request): 
+# def index(request): 
 #    header = "Персональные данные"  # обычная переменная 
 #    langs = ["Английский", "Немецкий", "Испанский"]  # массив 
 #    user = {"name": "Максим,", "age": 30}  # словарь 
@@ -33,10 +34,22 @@ def index(request):
 #    data = {"header": header, "langs": langs, "user": user, "address": addr} 
 #    return render(request, "firstapp/index_app1.html", context=data)
 #    return render(request, "firstapp/home.html")
-    data = {"age": 66}
+#    data = {"age": 66}
 #   cat = ["Ноутбуки", "Принтеры", "Сканеры", "Диски", "Шнуры"]
-    cat = []
-    return render(request, "firstapp/index.html", context= {"cat": cat})
+#    cat = []
+#    userform = UserForm()
+#    return render(request, "firsatapp/index.html", {"form": userform})
+
+def index(request):
+    if request.method == "POST":
+        name = request.POST.get("name") # получить значения поля Имя
+        age = request.POST.get("age") # значения поля Возраст
+        output = "<h2>Пользователь</h2><h3>Имя - {0}, Возраст – {1}</h3>".format(name, age)
+        return HttpResponse(output)
+    else:
+        userform = UserForm()
+        return render(request, "firstapp/index.html", {"form": userform})
+
 
 #def products(request, productid = 1):
 #     output = "<h2>Продукт № {0}</h2>".format(productid)
