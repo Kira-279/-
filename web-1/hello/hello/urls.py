@@ -28,9 +28,20 @@ from firstapp import views
 #    path('users/', views.users), 
 #] 
 
-urlpatterns = [  
+urlpatterns = [
     path('', views.index),
-    path('about/', TemplateView.as_view(template_name="firstapp/about.html")),
-    path('home/', TemplateView.as_view(template_name="firstapp/home.html")), 
-    path('contact/', TemplateView.as_view(template_name="firstapp/contact.html", extra_context={"work": "Разработка программных продуктов"})) 
+    re_path(r'^about', views.about),
+    re_path(r'^contact', views.contact),
+    path('products/', views.products), # маршрут по умолчанию
+    path('products/<int:productid>/', views.products),
+    path('users/', views.users), # маршрут по умолчанию
+    path('users/<int:id>/<str:name>/', views.users),
+
+#     path('products/<int:productid>/', views.products),
+#     path('users/<int:id>/<name>/', views.users),
+#    re_path(r'^products/(?P<productid>\d+)/', views.products),
+#    re_path(r'^users/(?P<id>\d+)/(?P<name>\D+)/', views.users),
+#    path('about/', TemplateView.as_view(template_name="firstapp/about.html")),
+#    path('home/', TemplateView.as_view(template_name="firstapp/home.html")), 
+#    path('contact/', TemplateView.as_view(template_name="firstapp/contact.html", extra_context={"work": "Разработка программных продуктов"})) 
 ]
