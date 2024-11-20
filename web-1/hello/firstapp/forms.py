@@ -18,4 +18,22 @@ class UserForm(forms.Form):
 #    uuid_text = forms.UUIDField(label="Введите UUID", help_text="Формат xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx") 
 #       combo_text = forms.ComboField(label="Введите URL", fields=[forms.URLField(), forms.CharField(max_length=20)])
 #    file_path = forms.FilePathField(label="Выберите файл", path="C:", allow_files="True", allow_folders="True")
-    file = forms.FileField(label="Файл")
+#    file = forms.FileField(label="Файл")
+#    file = forms.ImageField(label="Изображение") 
+#    date = forms.DateField(label="Введите дату")
+#    time = forms.DateField(label="Введите время")
+#    date_time = forms.DateTimeField(label="Введите дату и время") 
+#    time_delta = forms.DurationField(label="Введите промежуток времени")
+#    date_time = forms.SplitDateTimeField(label="Введите дату и время") 
+#    num = forms.IntegerField(label="Введите целое число")
+#    num1 = forms.DecimalField(label="Введите десятичное число", decimal_places=2)
+#    num2 = forms.FloatField(label="Введите число") 
+    ling = forms.ChoiceField(label="Выберите язык", choices=((1, "Английский"), (2, "Немецкий"), (3, "Французский"))) 
+    city = forms.TypedChoiceField(label="Выберите город", empty_value=None, choices=((1, "Москва"), (2, "Воронеж"), (3, "Курск")))
+    country = forms.MultipleChoiceField(label="Выберите страны", choices=((1, "Англия"), (2, "Германия"), (3, "Испания"), (4, "Россия"))) 
+
+    
+
+
+
+
