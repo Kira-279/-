@@ -28,10 +28,17 @@ class UserForm(forms.Form):
 #    num = forms.IntegerField(label="Введите целое число")
 #    num1 = forms.DecimalField(label="Введите десятичное число", decimal_places=2)
 #    num2 = forms.FloatField(label="Введите число") 
-    ling = forms.ChoiceField(label="Выберите язык", choices=((1, "Английский"), (2, "Немецкий"), (3, "Французский"))) 
-    city = forms.TypedChoiceField(label="Выберите город", empty_value=None, choices=((1, "Москва"), (2, "Воронеж"), (3, "Курск")))
-    country = forms.MultipleChoiceField(label="Выберите страны", choices=((1, "Англия"), (2, "Германия"), (3, "Испания"), (4, "Россия"))) 
-
+#    ling = forms.ChoiceField(label="Выберите язык", choices=((1, "Английский"), (2, "Немецкий"), (3, "Французский"))) 
+#    city = forms.TypedChoiceField(label="Выберите город", empty_value=None, choices=((1, "Москва"), (2, "Воронеж"), (3, "Курск")))
+#    country = forms.MultipleChoiceField(label="Выберите страны", choices=((1, "Англия"), (2, "Германия"), (3, "Испания"), (4, "Россия"))) 
+    name = forms.CharField(label="Имя", min_length=3, widget=forms.TextInput(attrs={"class": "myfield"})) 
+    age = forms.IntegerField(label="Возраст", min_value=1, max_value=100, widget=forms.NumberInput(attrs={"class": "myfield"})) 
+#    required_css_class = "field" 
+#    error_css_class = "error" 
+#    email = forms.EmailField(label="Электронный адрес") 
+#    reklama = forms.BooleanField(label="Согласны получать рекламу", required=False) 
+#    comment = forms.CharField(label="Комментарий", widget=forms.Textarea)
+#    field_order = ["age", "name"] 
     
 
 
