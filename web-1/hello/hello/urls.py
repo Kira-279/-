@@ -20,6 +20,16 @@ from django.urls import path
 from django.urls import re_path 
 from firstapp import views 
 
+urlpatterns = [
+    path('', views.index),
+    path('create/', views.create), 
+    path('edit/<int:id>/', views.edit), 
+    path('delete/<int:id>/', views.delete), 
+    path('about/', TemplateView.as_view(template_name="firstapp/about.html")),
+    path('home/', TemplateView.as_view(template_name="firstapp/home.html")), 
+    path('contact/', TemplateView.as_view(template_name="firstapp/contact.html", extra_context={"work": "Разработка программных продуктов"})) 
+]
+
 #urlpatterns = [ 
 #    path('', views.index), 
 #    re_path(r'^about', views.about), 
@@ -28,8 +38,6 @@ from firstapp import views
 #    path('users/', views.users), 
 #] 
 
-urlpatterns = [
-    path('', views.index),
 #    path('products/', views.products), # маршрут по умолчанию
 #    path('products/<int:productid>/', views.products),
 #    path('users/', views.users), # маршрут по умолчанию
@@ -39,7 +47,3 @@ urlpatterns = [
 #    path('users/<int:id>/<name>/', views.users),
 #    re_path(r'^products/(?P<productid>\d+)/', views.products),
 #    re_path(r'^users/(?P<id>\d+)/(?P<name>\D+)/', views.users),
-    path('about/', TemplateView.as_view(template_name="firstapp/about.html")),
-    path('home/', TemplateView.as_view(template_name="firstapp/home.html")), 
-    path('contact/', TemplateView.as_view(template_name="firstapp/contact.html", extra_context={"work": "Разработка программных продуктов"})) 
-]

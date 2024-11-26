@@ -12,32 +12,9 @@
                 width:200px; 
                 margin: 10px 10px 10px 0; 
             } 
-        </style>
-<!--        <style>
-            .field{font-weight:bold;} 
-            .error{color:red;}
-        </style>
-        <style> 
-           .alert{color:red} 
-            .form-group{margin: 10px 0;} 
-            .form-group input{width:250px;height: 25px;border-radius:10px;}
         </style> 
     </head>
-    <body>
-        <form method="POST" novalidate></form>
-        {% csrf_token %} 
-            <table> 
-                {{form}} 
-            </table> 
-            <input type="submit" value="Оправить" > 
-        </form> 
-        <form method="POST">
-            {% csrf_token %}           
-        <table>
-            {{ form }}
-        </table>
-            <input type="submit" value="Оправить" >
-        </form> -->
+    <body class="container">
         <h2>Форма</h2>
         <form method="POST" novalidate> 
             {% csrf_token %} 
@@ -53,26 +30,8 @@
                     {% endfor %} 
                    {% endif %} 
                 {% endfor %} 
-            </div> 
-            <input type="submit" value="Оправить"> 
-        </form>  
-<!--            <h2>Форма как список</h2> 
-        <form method="POST"> 
-            {% csrf_token %} 
-            <ul> 
-                {{ form.as_ul  }} 
-            </ul> 
-            <input type="submit" value="Оправить" > 
+            </div>
+            <p>
         </form> 
-        <h2>Форма как параграф</h2> 
-        <form method="POST"> 
-            {% csrf_token %} 
-            <div> 
-                {{ form.as_p  }} 
-            </div> 
-            <input type="submit" value="Оправить" > 
-        </form> -->
     </body>
 </html>
-
-
